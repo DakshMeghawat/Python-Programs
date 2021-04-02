@@ -1,0 +1,41 @@
+#Num=input("Enter account number=>")
+print("Welcome to the GOLDMINE Bank")
+C=input('''Press 2 For Creating Account
+Press 3 For Log In Your Account 
+   =>  ''')
+print(C)
+if C!=2:
+    print("hii")
+    A=open("Account.txt", "a")
+    import random
+    Accno = random.randint(100000000000, 999999999999)
+    print(Accno)
+    st=""
+    st=str(Accno)
+    print(type(st))
+    A.write(st)
+    
+    Name=input("Enter your name")
+    A.write(Name)
+    Phone_No=input("Enter your phone number")
+    A.write(Phone_No)
+    Address=input("Enter your address")
+    A.write(Address)
+    Age=input("Enter your age")
+    A.write(Age)
+    Gender=input("Enter your gender")
+    A.write(Gender)
+    print("Your Account Number is",Accno)
+    A.close()
+else:
+    print("Log in")
+print("Congratulation Your Account Is Created")
+#A=open("Account.txt", "w")
+#l=input("Enter account number=>")
+#A.write(l)
+#A.close()
+#A=open("Account.txt","r")
+#print ("Output of Readlines after appending")
+#N=A.readlines()
+#print(N)
+#A.close()

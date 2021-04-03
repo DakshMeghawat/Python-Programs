@@ -8,7 +8,7 @@ class Flight():
     date="04-05-21"
     tic=20
     left=20
-    def __init__(self,c,fno,price,source,dst,dptime,date,tic,left):
+    def fill(self,fno,price,source,dst,dptime,date,tic,left):
         self.fno=fno
         self.price=price
         self.source=source
@@ -17,7 +17,7 @@ class Flight():
         self.date=date
         self.tic=tic
         self.left=left
-        self.c=c
+        
         
     def show(self):
         print()
@@ -34,6 +34,12 @@ class Flight():
         print("**********************************************************************************************************************************************")
         
 class Airlines(Flight):
+    def __init__(self,Name,List):
+        self.Name=Name
+        self.List=List
+    #f1=Flight(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
+    #f2=Flight(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
+    
     def buy(self,choice,name,age,gender):
         if (choice ==1):
             f1=Flight(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
@@ -46,15 +52,24 @@ class Airlines(Flight):
     #f2=Flight(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
 choice=0
 choice=int (input("Press 1 to check all flights =>  "))
-Indigo=Airlines(1,3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)   
-AirIndia=Airlines(1,4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
-Jetairways=Airlines(1,5689,2000,"Udaipur","Delhi","1:00 PM","03-04-2021",120,120)
+f1=Flight()
+f1.fill(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
+f2=Flight()
+f2.fill(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
+Indigoflights=[]
+Indigoflights.append(f1)
+Indigoflights.append(f2)
+IndigoAirline=Airlines("indigo",Indigoflights)
+#Indigo=Airlines(1,3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)   
+#AirIndia=Airlines(1,4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
+#Jetairways=Airlines(1,5689,2000,"Udaipur","Delhi","1:00 PM","03-04-2021",120,120)
 if (choice ==1):
     Indigo.show()
     AirIndia.show()
     Jetairways.show()
 elif (choice ==0) :
-    Indigo.show()
-    print("In Progress")
+    for i in Indigoflights:
+        i.show()
+        #print("In Progress")
 
 

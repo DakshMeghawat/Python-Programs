@@ -55,7 +55,7 @@ class Flight():
             print()
             print()
             print("**********************************************************************************************************************************************")
-
+            print("Thanks For Visiting")
       
 class Airlines(Flight):
     def __init__(self,Name,List):
@@ -97,7 +97,7 @@ AirIndiaAirline=Airlines("Air India",AirIndiaflights)
 #Indigo=Airlines(1,3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)   
 #AirIndia=Airlines(1,4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
 #Jetairways=Airlines(1,5689,2000,"Udaipur","Delhi","1:00 PM","03-04-2021",120,120)
-if (choice ==2):
+def show1():
     PName=input("Enter Your Name => ")
     Phone_No=int(input('''Please Enter The same  Phone Number Linked With Your Account  =>  '''))
     Address=input("Enter Your Address => ")
@@ -111,6 +111,7 @@ if (choice ==2):
     Press 2 to Buy Jet Airways Ticket => 
     Press 3 to Buy Air India Ticket =>  '''))
     src=input("Enter Your Destintion Where You Want To Go => ")
+
     if (Air==1):
        
         if (src=="USA"):
@@ -135,14 +136,35 @@ if (choice ==2):
             print("This Flight Is Not Available Kindly Choose From The Available Flights")  
     else :
             print("This Flight Is Not Available Kindly Choose From The Available Flights")       
+if (choice ==2):
+    show1()
 elif (choice ==1) :
     for i in Indigoflights:
         i.show()
         #print("In Progress")
     for i in Jetflights:
         print()
-        print("**************************************************************************************************************************88")
+        print("**************************************************************************************************************************************************")
         print()
         i.show()
+    for i in AirIndiaflights:
+        print()
+        print("**************************************************************************************************************************************************")
+        print()
+        i.show()
+    A=0
+    A=int(input('''Press 1 if you want to buy the flight
+    
+        IMPORTENT INSTRUCTION =>   Please Check The Destination Speling From The ticket Once And Write The Same Speling 
+        As Written IN The Above Flight Information Only When Asked Otherwise You Will Not Able To Book Ticket  
+              =>   '''))
+    if(A==1):
+        
+        show1()
+    else :
+        print()
+        print("***************************************************************************************************************************************************")
+        print()
+        print("Thanks For Visiting To Our Site ")
 
 

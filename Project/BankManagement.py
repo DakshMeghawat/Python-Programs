@@ -9,6 +9,9 @@ class Saving_Account():
                 
            
                 f.close()
+                import os
+                from time import sleep
+                _ =os.system('cls')
                 ch=input("Enter Your Account Number => ")
                 B=open("Num.txt","r")
                 k=int(B.read())
@@ -33,13 +36,30 @@ class Saving_Account():
                 self.ch=ch
                 self.i=i
                 if (self.ch==self.acc):
-                        print("Your Account Number Is => ",self.acc)
-                        print("Your Name is => ",self.Add)
-                        print("Your age is => ",self.age)
-                        print("Your Gender is => ",self.gender)
-                        print("Your Phone Number Is => ",self.phone)
+                        import os
+                        from time  import sleep
+                        _ = os.system('cls') 
+        #screen_clear()
+                        print()
+                        print()
+                        print("**************************************************************************************************************************")
+                        print()
+                        print()
+                        print("                                                GOLDMINE BANK")
+                        print('____________________________________________________________________________________________________________________________')
+                        print()
+                        print("     Account Number  => ",self.acc,"                                                   Phone Number  => ",self.phone)
+                        print()
+                        print("_____________________________________________________________________________________________________________________________")
+                        print()
+                        print("     Name  => ",self.Name,"                  age => ",self.age,"                       Gender => ",self.gender)
                         A=open("Balance.txt",'r')
+                        print()
+                        print("____________________________________________________________________________________________________________________________")
+                        print()
                         print("Your Current Balance Is => ",A.readlines()[int(i)])
+                        print()
+                        print("_____________________________________________________________________________________________________________________________")
                         A.close()
         def write(self,Name,Phone_No,address,Age,Gender,bal):
                 
@@ -72,6 +92,9 @@ class Saving_Account():
                 B.write(bal)
                 B.close()
                 D.close()
+                import os
+                from time import sleep
+                _ =os.system('cls')
                 print("###################################################################################################################################")
                 print()
                 print()
@@ -86,86 +109,72 @@ class Saving_Account():
                 c=c+1;
                 B.write(str(c))
                 B.close()
-        def ckeck(slef,i):
-                print("modify")
-                B=open("Balance.txt","r")
-                Print("Your Current Balance is => ")
-                print(B.readlines()[int(i)])
-                B.close()
+        
         def modify(self,i):
                 print(i)
                 self.i=i
                 s=i
                 Z=[]  
                 a=open("Balance.txt","r")
-                #f=open("Num.txt","r")
-                #w=int(f.read())
-                #j=int(0)
+                
                 for h in a:
-                        #print("Value Of J is => ",j)
                         Z.append(h)
-                        #print("Value of K is => ",k)
-                        #Z.append(k)
-                        #print(Z[1])
-                        #j=j+int(1)
+                        
                 a.close()
-                #f.close()
-                #M=Z
-              #  print (M)
-                #L=M.split()
-                A=int(input("Enter Amount you want to withdraw => "))
-                #print("Value of I is => ",i)
-                #print("Value Of L Is => ",L)
-                #if (int(i)==0):
-                #        B=int(M[i])
-                #else :
-                #        s=s+1
-                #        B=int(M[s])
-                print("Value of Z is =>",Z)
-                B=int(Z[i])
-                print("check => ",B)
-                B=B-A
-                print("Value of Z is ",Z[i])
-                Z[i]=B
-                #Z.pop()
-                print("Z looks Like => ",Z)
-                print("cur am => ",Z[i])
-                C=open("Balance.txt","w")
-                #o=int(0)
-                for p in Z:
-                        C.write(str(p))
-                        F=open("Num.txt",'r')
-                        #t=int(F.read())-1
-                        #if(o<t):
-                                #C.write('\n')
-                        #o=o+int(1)
-                C.close()
-                #self.i=i
-                #B=open("Num.txt","r")
-                #k=int(B.read())
-                #D=[]
-                #for j in D:
-                #       D.append(j);
-                #M=D.split()
-                #print("Your balance is => ")
-                #p=int(0)
-                #while (p<k):
-                        #M=D[p]
-                        #L=M.split()
-                #am=int(input("Enter the Ammout You Want to Withdraw => "))
-                #B=open("Balance.txt","r")
-                #print(self.i)
-                #c=int(B.readlines()[self.i])
-                #print("Your Balance is => ",c)
-                #B.close()
-                #B=open("Balance.txt","a")
-                #for j in B:
-                        #if (c==j):
-                                #print("in it => ",c,"    ",j)
-                                #am=c-am
-                                #print(am)
-                                #B.write(str(am))
-                                #print("Your Balance is => ",am)
+                import os
+                from time import sleep
+                _ =os.system('cls') 
+                q=int(input('''Press 1 To Deposit In Your Account => 
+                Press 2 To Withdraw Erom Your Account => '''))
+                if (q==1):
+                        import os
+                        from time import sleep
+                        _ =os.system('cls') 
+                        A=int(input("Enter Amount you want to Deposit => "))
+                        B=int(Z[i])
+                        
+                        B=B+A
+                        
+                        Z[i]=B
+                        import os
+                        from time import sleep
+                        _ =os.system('cls')
+                        print("You Have Transaction Is Completed ")
+                        print("Now Your Current Amount Is => ",Z[i])
+                        C=open("Balance.txt","w")
+                
+                        for p in Z:
+                                C.write(str(p))
+                                F=open("Num.txt",'r')
+                        
+                        C.close()
+                elif (q==2):        
+                        A=int(input("Enter Amount you want to withdraw => "))
+                        B=int(Z[i])
+                        if(B>=A):
+                                B=B-A
+                                Z[i]=B
+                                import os
+                                from time import sleep
+                                _ =os.system('cls')
+                                print("You Have Transaction Is Completed ")
+                                print("Now Your Current Amount Is => ",Z[i])
+                                C=open("Balance.txt","w")
+                
+                                for p in Z:
+                                        C.write(str(p))
+                                        F=open("Num.txt",'r')
+                        
+                                C.close()
+                        else:
+                                import os
+                                from time  import sleep
+                                _ = os.system('cls') 
+        #screen_clear()
+                                print("Oops It Seems You Don't Have Enough Balance ..............")
+                                print("Your Current Balance is => ",B,'\n',"And You Asked To Withdraw => ",A,'\n',"So You Cannot Withdraw More Than That")
+                else:
+                        print("Wrong input")
         def show():  
                 
                 print("Log in")
@@ -173,8 +182,12 @@ class Saving_Account():
                 print(f.read(Name)) 
 print("Welcome to the GOLDMINE Bank")
 C=int(input('''Press 2 For Creating Account)
-Press 3 For Log In Your Account 
-   =>  '''))   
+Press 3 For Log In Your Account
+Press 4 To Withdraw And Deposit From Your Account
+   =>  '''))
+import os
+from time import sleep
+_ =os.system('cls')   
 S=Saving_Account()
 if (C==2):
         import random
@@ -196,23 +209,7 @@ if(C==3):
 if(C==4):
         S.Search(C)
 if(C==5):
-        a=open("Balance.txt","r")
-        d=a.readlines()
-        print(d)
-        #for v in a:
-                #d.append(v)
-        #print (d)    
-        #print(a.readlines()[0])
-        #a.write("900000")
-        #print("Now  => ",a.readlines()[0])  
-        #a.close()
-      
-#A=open("Account.txt", "w")
-#l=input("Enter account number=>")
-#A.write(l)
-#A.close()
-#A=open("Account.txt","r")
-#print ("Output of Readlines after appending")
-#N=A.readlines()
-#print(N)
-#A.close()
+        import os
+        from time  import sleep
+        _ = os.system('cls') 
+        #screen_clear()

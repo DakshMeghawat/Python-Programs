@@ -41,28 +41,41 @@ class Flight():
             self.Add=Add
             self.gender=gender
             self.left=self.left - 1 
-            
+            import os
+            from time import sleep
+            _ =os.system('cls')
             print("**********************************************************************************************************************************************")
             print()
             print()
-            print("                                 Your Airline Is =>  ",self.airline)
+            print("                                               Your Airline Is =>  ",self.airline)
             print()
             print("______________________________________________________________________________________________________________________________________________")
             print()
-            print("Flight Number => " ,self.fno,"                From =>",self.source,"                  To  Destination => ",self.dst,"                 Date => ",self.date)
+            print("Flight Number => " ,self.fno,"                From =>",self.source,"                To  Destination => ",self.dst,"                 Date => ",self.date)
             print()
             print("______________________________________________________________________________________________________________________________________________")
             print()
-            print("No of Seats Available => ", self.left ,"         Price => ", self.price,"                Phone no =>  ",self.Pno)
+            print("Address => ",self.Add ,"          Price => ", self.price,"             Phone no =>  ",self.Pno)
+            print()
+            print("______________________________________________________________________________________________________________________________________________")
             print()
             print("Passenger Name=>  ",self.name ,"              Age =>  ",self.age,"                    Gender=>",self.gender)
             print()
+            print("______________________________________________________________________________________________________________________________________________")
+            print()
             print("Address => ",self.Add)
+            print()
+            print("______________________________________________________________________________________________________________________________________________")
+            print()
        # print("Passenger Name => ",name,"        Age => ",age,"     Gender=> ",gender,"    Ticket Price Is => ",price,"Rs")
             print()
             print()
             print()
             print("**********************************************************************************************************************************************")
+            print()
+            print()
+            print()
+            print()
             print("Thanks For Visiting")
       
 class Airlines(Flight):
@@ -77,6 +90,9 @@ class Airlines(Flight):
    # f1=Flight(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
     #f2=Flight(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
 choice=0
+import os
+from time import sleep
+_ =os.system('cls')
 choice=int (input('''Press 1 to check all flights =>  
 Press 2 to Buy Ticket  =>  '''))
 f1=Flight()
@@ -106,12 +122,18 @@ AirIndiaAirline=Airlines("Air India",AirIndiaflights)
 #AirIndia=Airlines(1,4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
 #Jetairways=Airlines(1,5689,2000,"Udaipur","Delhi","1:00 PM","03-04-2021",120,120)
 def show1():
+    import os
+    from time import sleep
+    _ =os.system('cls')
     PName=input("Enter Your Name => ")
     Phone_No=int(input('''Please Enter The same  Phone Number Linked With Your Account  =>  '''))
     Address=input("Enter Your Address => ")
     Gender=input("Enter Your Gender => ")
     Accountno=input("Enter your Account Number => ")
     Age=input("Enter Your Age =>  ")
+    import os
+    from time import sleep
+    _ =os.system('cls')
     Air=int(input(''' 
     
     
@@ -147,25 +169,44 @@ def show1():
 if (choice ==2):
     show1()
 elif (choice ==1) :
+    import os
+    from time import sleep
+    _ =os.system('cls')
     for i in Indigoflights:
+        print()
+        print()
         i.show()
+        print()
+        print()
+        print("**************************************************************************************************************************************************")
+        print()
+        print()
         #print("In Progress")
     for i in Jetflights:
         print()
-        print("**************************************************************************************************************************************************")
         print()
         i.show()
+        print()
+        print("**************************************************************************************************************************************************")
+        print()
+        print()
+        print()
     for i in AirIndiaflights:
         print()
-        print("**************************************************************************************************************************************************")
         print()
         i.show()
+        print()
+        print("**************************************************************************************************************************************************")
+        print()
     A=0
     A=int(input('''Press 1 if you want to buy the flight
     
         IMPORTENT INSTRUCTION =>   Please Check The Destination Speling From The ticket Once And Write The Same Speling 
         As Written IN The Above Flight Information Only When Asked Otherwise You Will Not Able To Book Ticket  
               =>   '''))
+    import os
+    from time import sleep
+    _ =os.system('cls')
     if(A==1):
         
         show1()
@@ -174,5 +215,8 @@ elif (choice ==1) :
         print("***************************************************************************************************************************************************")
         print()
         print("Thanks For Visiting To Our Site ")
+        print("***************************************************************************************************************************************************")
+        print()
+        print()
 
 

@@ -110,33 +110,35 @@ class Saving_Account():
                         #j=j+int(1)
                 a.close()
                 #f.close()
-                M=Z
-                print (M)
+                #M=Z
+              #  print (M)
                 #L=M.split()
                 A=int(input("Enter Amount you want to withdraw => "))
                 #print("Value of I is => ",i)
                 #print("Value Of L Is => ",L)
-                if (int(i)==0):
-                        B=int(M[i])
-                else :
-                        s=s+1
-                        B=int(M[s])
+                #if (int(i)==0):
+                #        B=int(M[i])
+                #else :
+                #        s=s+1
+                #        B=int(M[s])
+                print("Value of Z is =>",Z)
+                B=int(Z[i])
                 print("check => ",B)
                 B=B-A
                 print("Value of Z is ",Z[i])
                 Z[i]=B
-                Z.pop()
+                #Z.pop()
                 print("Z looks Like => ",Z)
                 print("cur am => ",Z[i])
                 C=open("Balance.txt","w")
-                o=int(0)
+                #o=int(0)
                 for p in Z:
                         C.write(str(p))
                         F=open("Num.txt",'r')
-                        t=int(F.read())-1
-                        if(o<t):
-                                C.write('\n')
-                        o=o+int(1)
+                        #t=int(F.read())-1
+                        #if(o<t):
+                                #C.write('\n')
+                        #o=o+int(1)
                 C.close()
                 #self.i=i
                 #B=open("Num.txt","r")

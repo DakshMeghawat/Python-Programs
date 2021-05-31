@@ -1,5 +1,6 @@
 var=0
-src="ggg"
+
+src ="ddd"
 class Saving_Account():
         
         def Search(self,C):
@@ -8,12 +9,12 @@ class Saving_Account():
                 for i in f:
                         lis.append(i)
                 
-           
+                
                 f.close()
                 import os
                 from time import sleep
                 _ =os.system('cls')
-                print("IN search fun")
+                #print("IN search fun")
                 ch=input("Enter Your Account Number => ")
                 B=open("Num.txt","r")
                 k=int(B.read())
@@ -23,13 +24,19 @@ class Saving_Account():
                         p=n.split()
                         if (C==3):
                                 S.sh(ch,p[0],p[1],p[2],p[3],p[4],p[5],i)
-                        if (C==4 or C==5):
+                        elif (C==4 or C==5):
                                 print("in loop 1")
                                 if(ch==p[0]):
                                         print("in loop 2")
                                         Val=S.modify(i)
                                         return(Val)
-                        
+                        else:
+                                import os 
+                                from time import sleep
+                                _=os.system('cls')
+                                print("Oop Wrong Account Number \n")
+                                print("Transaction End ")
+                                end1()
                         i=i+1
                         #print(i)
         
@@ -61,10 +68,14 @@ class Saving_Account():
                         print()
                         print("     Name  => ",self.Name,"                  age => ",self.age,"                       Gender => ",self.gender)
                         A=open("Balance.txt",'r')
+                        lis=[]
+                        for l in A:
+                                lis.append()
+                        A.close()
                         print()
                         print("____________________________________________________________________________________________________________________________")
                         print()
-                        print("Your Current Balance Is => ",A.readlines()[int(i)])
+                        print("Your Current Balance Is => ",lis[i])
                         print()
                         print("_____________________________________________________________________________________________________________________________")
                         A.close()
@@ -119,6 +130,7 @@ class Saving_Account():
                 B.close()
         
         def modify(self,i):
+                global src
                 print(i)
                 self.i=i
                 s=i
@@ -145,7 +157,7 @@ class Saving_Account():
                         
                                 B=B+A
                         
-                                Z[i]=B
+                                Z[i]=str(B)+'\n'
                                 import os
                                 from time import sleep
                                 _ =os.system('cls')
@@ -157,16 +169,16 @@ class Saving_Account():
                                         C.write(str(p))
                                         F=open("Num.txt",'r')
                         
-                                        C.close()
+                                C.close()
                         elif (q==2):
                                 import os
                                 from time import sleep
                                 _ =os.system('cls')        
-                                A=int(input("Enter Amount you want to withdraw => "))
+                                A=int(input("Enter Amount you want to withdraw =>  "))
                                 B=int(Z[i])
                                 if(B>=A):
                                         B=B-A
-                                        Z[i]=B
+                                        Z[i]=str(B)+'\n'
                                         import os
                                         from time import sleep
                                         _ =os.system('cls')
@@ -179,7 +191,7 @@ class Saving_Account():
                                                 C.write(str(p))
                                                 F=open("Num.txt",'r')
                         
-                                                C.close()
+                                        C.close()
                                 else:
                                         import os
                                         from time  import sleep
@@ -194,6 +206,7 @@ class Saving_Account():
                         import os
                         from time import sleep
                         _ =os.system('cls')
+                        
                         if(src=="USA"):
                                 A=int(90000)
                         elif(src=="Pune"):
@@ -207,26 +220,31 @@ class Saving_Account():
                         elif(src=="Goa"):
                                 A=int(5000)
                         
-                        A=int(4000)
-                               
+                        #A=int(4000)
+                        #print("Value of src is =>  ",src) 
+                        #print("Value of A is => ",A)     
+                        #q=input("Check  => ")
                         #A=int(input("Enter Amount you want to withdraw => "))
                         B=int(Z[i])
                         if(B>=A):
+                                
+                                gar=input(" ")
                                 B=B-A
-                                Z[i]=B
+                                Z[i]=str(B)+'\n'
                                 import os
                                 from time import sleep
                                 _ =os.system('cls')
                                 print("Your Transaction Is Completed ")
-                                print("Now Your Current Amount Is => ",Z[i])
-                                #C=open("Balance.txt","w")
+                                print("Now Your Current Amount Is =>  ",Z[i])
+                                gar=input(" Press Enter To Proceed ")
+                                C=open("Balance.txt","w")
                 
                                 for p in Z:
-                                        C=open("Balance.txt","w")
+                                        #C=open("Balance.txt","w")
                                         C.write(str(p))
                                         F=open("Num.txt",'r')
                         
-                                        C.close()
+                                C.close()
                                 return (0)
                         else:
                                 import os
@@ -261,7 +279,7 @@ class Saving_Account():
                         import os
                         from time import sleep
                         _ =os.system('cls')
-                        bal=input("Enter Amount To Be Depsited => ")
+                        bal=input("Enter Amount To Be Depsited =>  ")
                         import os
                         from time import sleep
                         _ =os.system('cls')
@@ -366,21 +384,17 @@ class Airlines(Flight):
     def __init__(self,Name,List):
         self.Name=Name
         self.List=List
-    #f1=Flight(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
-    #f2=Flight(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
-    
-    
-
-   # f1=Flight(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
-    #f2=Flight(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
-#choice=0
-#flag=0
 Cname=int(0)
 import os
 from time import sleep
 _ =os.system('cls')
+
+# Program Starts From here
+
+
 choice=int (input('''Press 1 to check all flights =>  
 Press 2 to Buy Ticket  =>  '''))
+
 f1=Flight()
 f1.fill(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30,"Indigo")
 f2=Flight()
@@ -405,16 +419,14 @@ AirIndiaflights.append(f5)
 AirIndiaflights.append(f6)
 AirIndiaAirline=Airlines("Air India",AirIndiaflights)
 S=Saving_Account()
-#Indigo=Airlines(1,3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)   
-#AirIndia=Airlines(1,4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
-#Jetairways=Airlines(1,5689,2000,"Udaipur","Delhi","1:00 PM","03-04-2021",120,120)
+
 def show1():
         import os
         from time import sleep
         _ =os.system('cls')
-        PName=input("Enter Your Name => ")
+        PName=input("Enter Your Name =>  ")
         Phone_No=int(input('''Please Enter The same  Phone Number Linked With Your Account  =>  '''))
-        Address=input("Enter Your Address => ")
+        Address=input("Enter Your Address =>  ")
         Gender=input("Enter Your Gender => ")
         #Accountno=input("Enter your Account Number => ")
         Age=input("Enter Your Age =>  ")
@@ -427,12 +439,39 @@ def show1():
                 Press 1 to Buy Indigo Ticket =>
                 Press 2 to Buy Jet Airways Ticket => 
                 Press 3 to Buy Air India Ticket =>  '''))
-                src=input("Enter Your Destintion Where You Want To Go => ")
+                global src
+                src=input("Enter Your Destintion Where You Want To Go =>  ")
                 print(src)
-                num=5
-                
-                Val=S.Search(num)
-                
+                if (Air==1):
+                        if (src=="USA"):
+                                num=5
+                                Val=S.Search(num)
+                        elif (src=="Pune"):
+                                num=5
+                                Val=S.Search(num)
+                        else :
+                                print("This Flight Is Not Available Kindly Choose From The Available Flights") 
+                                end1()   
+                elif (Air==2):
+                        if (src=="Ahemdabad"):
+                                num=5
+                                Val=S.Search(num)
+                        elif (src=="Paris"):
+                                num=5
+                                Val=S.Search(num)
+                        else :
+                                print("This Flight Is Not Available Kindly Choose From The Available Flights")  
+                                end1()  
+                elif (Air==3):
+                        if (src=="Canada"):
+                                num=5
+                                Val=S.Search(num)
+                        elif (src=="Goa") :
+                                num=5
+                                Val=S.Search(num)
+                        else :
+                                print("This Flight Is Not Available Kindly Choose From The Available Flights") 
+                                end1()
                 if(Val==0):
                         if (Air==1):
                                 if (src=="USA"):
@@ -441,22 +480,26 @@ def show1():
                                         f2.buy(PName,Age,Phone_No,Address,Gender)
                                 else :
                                         print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+                                        end1()
                         elif (Air==2):
                                 if (src=="Ahemdabad"):
                                         f3.buy(PName,Age,Phone_No,Address,Gender)
                                 elif (src=="Paris"):
                                         f4.buy(PName,Age,Phone_No,Address,Gender)
                                 else :
-                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                        end1()    
                         elif (Air==3):
                                 if (src=="Canada"):
                                         f5.buy(PName,Age,Phone_No,Address,Gender)
                                 elif (src=="Goa") :
                                         f6.buy(PName,Age,Phone_No,Address,Gender) 
                                 else :
-                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")  
+                                        print("This Flight Is Not Available Kindly Choose From The Available Flights") 
+                                        end1() 
                         else :
                                 print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                end1()
         elif(flag==1):
                 if(Cname==1):
                         Air=1
@@ -464,10 +507,41 @@ def show1():
                         Air=2
                 else:
                         Air=3    
-                src=input("Enter Your Destintion Where You Want To Go => ")
-                
-                num=5
-                Val=S.Search(num)
+                src = input("Enter Your Destintion Where You Want To Go =>  ")
+
+                if (Air==1):
+                        if (src=="USA"):
+                                num=5
+                                Val=S.Search(num)
+                        elif (src=="Pune"):
+                                num=5
+                                Val=S.Search(num)
+                        else :
+                                print("This Flight Is Not Available Kindly Choose From The Available Flights") 
+                                end1()   
+                elif (Air==2):
+                        if (src=="Ahemdabad"):
+                                num=5
+                                Val=S.Search(num)
+                        elif (src=="Paris"):
+                                num=5
+                                Val=S.Search(num)
+                        else :
+                                print("This Flight Is Not Available Kindly Choose From The Available Flights") 
+                                end1()   
+                elif (Air==3):
+                        if (src=="Canada"):
+                                num=5
+                                Val=S.Search(num)
+                        elif (src=="Goa") :
+                                num=5
+                                Val=S.Search(num)
+                        else :
+                                print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                end1()  
+                else :
+                        print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                        end1()
                 
                 if(Val==0):
                         if (Air==1):
@@ -476,32 +550,46 @@ def show1():
                                 elif (src=="Pune"):
                                         f2.buy(PName,Age,Phone_No,Address,Gender)
                                 else :
-                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                        end1()    
                         elif (Air==2):
                                 if (src=="Ahemdabad"):
                                         f3.buy(PName,Age,Phone_No,Address,Gender)
                                 elif (src=="Paris"):
                                         f4.buy(PName,Age,Phone_No,Address,Gender)
                                 else :
-                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                        end1()    
                         elif (Air==3):
                                 if (src=="Canada"):
                                         f5.buy(PName,Age,Phone_No,Address,Gender)
                                 elif (src=="Goa") :
                                         f6.buy(PName,Age,Phone_No,Address,Gender) 
                                 else :
-                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")  
+                                        print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                        end1()  
                         else :
                                 print("This Flight Is Not Available Kindly Choose From The Available Flights")
+                                end1()
         
-   
+def end1():
+        
+        print()
+        print("***************************************************************************************************************************************************")
+        print()
+        print("Thanks For Visiting To Our Site ")
+        print()
+        print("***************************************************************************************************************************************************")
+        print()
+        print()
+        exit()  
 if (choice ==2):
     show1()
 elif (choice ==1) :
     import os
     from time import sleep
     _ =os.system('cls')
-    Filter=int(input("Press 1 to check particular company flights or Press 2 to check all the flights"))
+    Filter=int(input("Press 1 to check particular company flights or Press 2 to check all the flights => "))
     if (Filter==1):
         flag=1
         Cname=int(input(''' 
@@ -536,7 +624,7 @@ elif (choice ==1) :
                 print()
                 print("**************************************************************************************************************************************************")
                 print()
-    elif (filter==2):
+    elif (Filter==2):
         for i in Indigoflights:
             print()
             print()
@@ -578,13 +666,7 @@ elif (choice ==1) :
             
             show1()
     else :
-        print()
-        print("***************************************************************************************************************************************************")
-        print()
-        print("Thanks For Visiting To Our Site ")
-        print()
-        print("***************************************************************************************************************************************************")
-        print()
-        print()
+            end1()
+
 
 

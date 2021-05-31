@@ -1,3 +1,5 @@
+flag=0
+Cname=0  
 class Flight():
     fno =1
     price =200
@@ -89,7 +91,9 @@ class Airlines(Flight):
 
    # f1=Flight(3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)
     #f2=Flight(4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
-choice=0
+#choice=0
+#flag=0
+Cname=int(0)
 import os
 from time import sleep
 _ =os.system('cls')
@@ -118,6 +122,7 @@ AirIndiaflights=[]
 AirIndiaflights.append(f5)
 AirIndiaflights.append(f6)
 AirIndiaAirline=Airlines("Air India",AirIndiaflights)
+
 #Indigo=Airlines(1,3271,90000,"Delhi","USA","9:00 AM"," 03-04-2021 ",30,30)   
 #AirIndia=Airlines(1,4651,5000,"Delhi","Pune","9:00 AM"," 03-04-2021 ",60,60)
 #Jetairways=Airlines(1,5689,2000,"Udaipur","Delhi","1:00 PM","03-04-2021",120,120)
@@ -134,70 +139,142 @@ def show1():
     import os
     from time import sleep
     _ =os.system('cls')
-    Air=int(input(''' 
-    
-    
-    Press 1 to Buy Indigo Ticket =>
-    Press 2 to Buy Jet Airways Ticket => 
-    Press 3 to Buy Air India Ticket =>  '''))
-    src=input("Enter Your Destintion Where You Want To Go => ")
+    if (flag==0):
+        Air=int(input(''' 
+        Press 1 to Buy Indigo Ticket =>
+        Press 2 to Buy Jet Airways Ticket => 
+        Press 3 to Buy Air India Ticket =>  '''))
+        src=input("Enter Your Destintion Where You Want To Go => ")
 
-    if (Air==1):
-       
-        if (src=="USA"):
-            f1.buy(PName,Age,Phone_No,Address,Gender)
-        elif (src=="Pune"):
-            f2.buy(PName,Age,Phone_No,Address,Gender)
+        if (Air==1):
+            if (src=="USA"):
+                f1.buy(PName,Age,Phone_No,Address,Gender)
+            elif (src=="Pune"):
+                f2.buy(PName,Age,Phone_No,Address,Gender)
+            else :
+                print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+        elif (Air==2):
+            if (src=="Ahemdabad"):
+                f3.buy(PName,Age,Phone_No,Address,Gender)
+            elif (src=="Paris"):
+                f4.buy(PName,Age,Phone_No,Address,Gender)
+            else :
+                print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+        elif (Air==3):
+            if (src=="Canada"):
+                f5.buy(PName,Age,Phone_No,Address,Gender)
+            elif (src=="Goa") :
+                f6.buy(PName,Age,Phone_No,Address,Gender) 
+            else :
+                print("This Flight Is Not Available Kindly Choose From The Available Flights")  
         else :
-            print("This Flight Is Not Available Kindly Choose From The Available Flights")    
-    elif (Air==2):
-        if (src=="Ahemdabad"):
-            f3.buy(PName,Age,Phone_No,Address,Gender)
-        elif (src=="Paris"):
-            f4.buy(PName,Age,Phone_No,Address,Gender)
+            print("This Flight Is Not Available Kindly Choose From The Available Flights")
+    elif(flag==1):
+        if(Cname==1):
+            Air=1
+        elif(Cname==2):
+            Air=2
+        else:
+            Air=3    
+        src=input("Enter Your Destintion Where You Want To Go => ")
+
+        if (Air==1):
+            if (src=="USA"):
+                f1.buy(PName,Age,Phone_No,Address,Gender)
+            elif (src=="Pune"):
+                f2.buy(PName,Age,Phone_No,Address,Gender)
+            else :
+                print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+        elif (Air==2):
+            if (src=="Ahemdabad"):
+                f3.buy(PName,Age,Phone_No,Address,Gender)
+            elif (src=="Paris"):
+                f4.buy(PName,Age,Phone_No,Address,Gender)
+            else :
+                print("This Flight Is Not Available Kindly Choose From The Available Flights")    
+        elif (Air==3):
+            if (src=="Canada"):
+                f5.buy(PName,Age,Phone_No,Address,Gender)
+            elif (src=="Goa") :
+                f6.buy(PName,Age,Phone_No,Address,Gender) 
+            else :
+                print("This Flight Is Not Available Kindly Choose From The Available Flights")  
         else :
-            print("This Flight Is Not Available Kindly Choose From The Available Flights")    
-    elif (Air==3):
-        if (src=="Canada"):
-            f5.buy(PName,Age,Phone_No,Address,Gender)
-        elif (src=="Goa") :
-            f6.buy(PName,Age,Phone_No,Address,Gender) 
-        else :
-            print("This Flight Is Not Available Kindly Choose From The Available Flights")  
-    else :
-            print("This Flight Is Not Available Kindly Choose From The Available Flights")       
+            print("This Flight Is Not Available Kindly Choose From The Available Flights")
+        
+if(choice==9):
+    print("Price of f1 => ",f1.price)
 if (choice ==2):
+    
     show1()
 elif (choice ==1) :
     import os
     from time import sleep
     _ =os.system('cls')
-    for i in Indigoflights:
-        print()
-        print()
-        i.show()
-        print()
-        print()
-        print("**************************************************************************************************************************************************")
-        print()
-        print()
+    Filter=int(input("Press 1 to check particular company flights or Press 2 to check all the flights"))
+    if (Filter==1):
+        flag=1
+        Cname=int(input(''' 
+                    Press 1 to check Indigo Ticket =>
+                    Press 2 to check Jet Airways Ticket => 
+                    Press 3 to check Air India Ticket =>  '''))
+        if (Cname==1):
+            for i in Indigoflights:
+                print()
+                print()
+                i.show()
+                print()
+                print()
+                print("**************************************************************************************************************************************************")
+                print()
+                print()
+        if(Cname==2):
+            for i in Jetflights:
+                print()
+                print()
+                i.show()
+                print()
+                print("**************************************************************************************************************************************************")
+                print()
+                print()
+                print()
+        if(Cname==3):
+            for i in AirIndiaflights:
+                print()
+                print()
+                i.show()
+                print()
+                print("**************************************************************************************************************************************************")
+                print()
+    elif (filter==2):
+        for i in Indigoflights:
+            print()
+            print()
+            i.show()
+            print()
+            print()
+            print("**************************************************************************************************************************************************")
+            print()
+            print()
         #print("In Progress")
-    for i in Jetflights:
-        print()
-        print()
-        i.show()
-        print()
-        print("**************************************************************************************************************************************************")
-        print()
-        print()
-        print()
-    for i in AirIndiaflights:
-        print()
-        print()
-        i.show()
-        print()
-        print("**************************************************************************************************************************************************")
-        print()
+        for i in Jetflights:
+            print()
+            print()
+            i.show()
+            print()
+            print("**************************************************************************************************************************************************")
+            print()
+            print()
+            print()
+        for i in AirIndiaflights:
+            print()
+            print()
+            i.show()
+            print()
+            print("**************************************************************************************************************************************************")
+            print()
+    else:
+        print("Wrong Choice")
     A=0
     A=int(input('''Press 1 if you want to buy the flight
     
@@ -208,13 +285,14 @@ elif (choice ==1) :
     from time import sleep
     _ =os.system('cls')
     if(A==1):
-        
-        show1()
+        if (flag==1):
+            show1()
     else :
         print()
         print("***************************************************************************************************************************************************")
         print()
         print("Thanks For Visiting To Our Site ")
+        print()
         print("***************************************************************************************************************************************************")
         print()
         print()

@@ -1,6 +1,4 @@
-#Num=input("Enter account number=>")
 class Saving_Account():
-        
         def Search(self,C):
                 f=open("Account.txt",'r')
                 lis=[]
@@ -13,6 +11,7 @@ class Saving_Account():
                 from time import sleep
                 _ =os.system('cls')
                 ch=input("Enter Your Account Number => ")
+                pno=input("Enter your phone number")
                 B=open("Num.txt","r")
                 k=int(B.read())
                 i=int(0)
@@ -22,7 +21,7 @@ class Saving_Account():
                         if (C==3):
                                 S.sh(ch,p[0],p[1],p[2],p[3],p[4],p[5],i)
                         if (C==4):
-                                if(ch==p[0]):
+                                if(ch==p[0] and pno==p[2]):
                                         S.modify(i)
                         i=i+1
                         #print(i)
@@ -54,14 +53,17 @@ class Saving_Account():
                         print()
                         print("     Name  => ",self.Name,"                  age => ",self.age,"                       Gender => ",self.gender)
                         A=open("Balance.txt",'r')
+                        lis=[]
+                        for k in A:
+                                lis.append(k)
                         print()
                         print("____________________________________________________________________________________________________________________________")
                         print()
-                        print("Your Current Balance Is => ",A.readlines()[int(i)])
+                        print("Your Current Balance Is => ",lis[i])
                         print()
                         print("_____________________________________________________________________________________________________________________________")
                         A.close()
-        def write(self,Name,Phone_No,address,Age,Gender,bal):
+        def write(self,st,Name,Phone_No,address,Age,Gender,bal):
                 
                 print("hii")
                 self.Name=Name
@@ -69,6 +71,7 @@ class Saving_Account():
                 self.address=address
                 self.Age=Age
                 self.Gender=Gender
+                self.st=st
                 A=open("Account.txt", "a")
             
                 A.write(st+' ')
@@ -77,7 +80,7 @@ class Saving_Account():
             
                 A.write(Phone_No+' ')
             
-                A.write(Address+' ')
+                A.write(address+' ')
            
                 A.write(Age+' ')
             
@@ -106,7 +109,7 @@ class Saving_Account():
                 c=int(B.read())
                 B.close()
                 B=open("Num.txt","w")
-                c=c+1;
+                c=c+1
                 B.write(str(c))
                 B.close()
         
@@ -139,7 +142,7 @@ class Saving_Account():
                         import os
                         from time import sleep
                         _ =os.system('cls')
-                        print("You Have Transaction Is Completed ")
+                        print("Your Transaction Is Completed ")
                         print("Now Your Current Amount Is => ",Z[i])
                         C=open("Balance.txt","w")
                 
@@ -148,16 +151,19 @@ class Saving_Account():
                                 F=open("Num.txt",'r')
                         
                         C.close()
-                elif (q==2):        
+                elif (q==2):
+                        import os
+                        from time import sleep
+                        _ =os.system('cls')        
                         A=int(input("Enter Amount you want to withdraw => "))
-                        B=int(Z[i])
+                        B=int(Z[int(i)])
                         if(B>=A):
                                 B=B-A
                                 Z[i]=B
                                 import os
                                 from time import sleep
                                 _ =os.system('cls')
-                                print("You Have Transaction Is Completed ")
+                                print("Your Transaction Is Completed ")
                                 print("Now Your Current Amount Is => ",Z[i])
                                 C=open("Balance.txt","w")
                 
@@ -175,41 +181,59 @@ class Saving_Account():
                                 print("Your Current Balance is => ",B,'\n',"And You Asked To Withdraw => ",A,'\n',"So You Cannot Withdraw More Than That")
                 else:
                         print("Wrong input")
-        def show():  
-                
-                print("Log in")
-                f = open("Account.txt", "r") 
-                print(f.read(Name)) 
+        #def show():  
+        #       f = open("Account.txt", "r") 
+        #       print(f.read(Name))
+        
+        def choice(self,C):
+                self.C=C
+                import os
+                from time import sleep
+                _ =os.system('cls')   
+                if (C==2):
+                        import random
+                        Accno = random.randint(100, 999)
+                        print(Accno)
+                        st=""
+                        st=str(Accno)
+                        print(type(st))
+                        Name=input("Enter your name")
+                        Phone_No=input("Enter your phone number")
+                        Address=input("Enter your address")
+                        Age=input("Enter your age")
+                        Gender=input("Enter your gender")
+                        
+                        import os
+                        from time import sleep
+                        _ =os.system('cls')
+                        bal=input("Enter Amount To Be Depsited => ")
+                        import os
+                        from time import sleep
+                        _ =os.system('cls')
+                        print()
+                        print()
+                        print("___________________________________________________________________________________________________________________________________")
+                        print()
+                        print("Your Account Number is",Accno)
+                        print()
+                        print("___________________________________________________________________________________________________________________________________")
+                        S.write(st,Name,Phone_No,Address,Age,Gender,bal)
+                elif(C==3):
+                        S.Search(C)
+                elif(C==4):
+                        S.Search(C)
+               
+                else:
+                        #_ =os.system('cls')
+                        print("Sorry This option Is Not Available ") 
+import os
+from time import sleep
+_ =os.system('cls') 
 print("Welcome to the GOLDMINE Bank")
 C=int(input('''Press 2 For Creating Account)
 Press 3 For Log In Your Account
 Press 4 To Withdraw And Deposit From Your Account
    =>  '''))
-import os
-from time import sleep
-_ =os.system('cls')   
 S=Saving_Account()
-if (C==2):
-        import random
-        Accno = random.randint(100, 999)
-        print(Accno)
-        st=""
-        st=str(Accno)
-        print(type(st))
-        Name=input("Enter your name")
-        Phone_No=input("Enter your phone number")
-        Address=input("Enter your address")
-        Age=input("Enter your age")
-        Gender=input("Enter your gender")
-        print("Your Account Number is",Accno)
-        bal=input("Enter Amount To Be Depsited => ")
-        S.write(Name,Phone_No,Address,Age,Gender,bal)
-if(C==3):
-        S.Search(C)
-if(C==4):
-        S.Search(C)
-if(C==5):
-        import os
-        from time  import sleep
-        _ = os.system('cls') 
-        #screen_clear()
+S.choice(C)  
+

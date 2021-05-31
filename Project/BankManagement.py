@@ -138,7 +138,7 @@ class Saving_Account():
                         
                         B=B+A
                         
-                        Z[i]=B
+                        Z[i]=str(B)+'\n'
                         import os
                         from time import sleep
                         _ =os.system('cls')
@@ -146,8 +146,8 @@ class Saving_Account():
                         print("Now Your Current Amount Is => ",Z[i])
                         C=open("Balance.txt","w")
                 
-                        for p in Z:
-                                C.write(str(p))
+                        for oo in Z:
+                                C.write(str(oo))
                                 F=open("Num.txt",'r')
                         
                         C.close()
@@ -159,7 +159,7 @@ class Saving_Account():
                         B=int(Z[int(i)])
                         if(B>=A):
                                 B=B-A
-                                Z[i]=B
+                                Z[i]=str(B)+'\n'
                                 import os
                                 from time import sleep
                                 _ =os.system('cls')
